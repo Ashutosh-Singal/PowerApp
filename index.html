@@ -10,11 +10,11 @@
 		$(document).on("mobileinit", function () {
 			$.mobile.defaultPageTransition = "slidefade";
 		});
-		const app= firebase.app();
-		function googleLogin(){
-			const provider=new firebase.auth.GoogleAuthProvider();
-			firebase.auth().signInWithPopup(provider)
-			.catch(console.log)
+		const app = firebase.app();
+
+		function googleLogin() {
+			const provider = new firebase.auth.GoogleAuthProvider();
+			firebase.auth().signInWithPopup(provider).catch(console.log);
 		}
 	</script>
 	<script type="text/javascript" src="js/script.js"></script>
@@ -29,33 +29,100 @@
 	<script defer src="/__/firebase/7.24.0/firebase-analytics.js"></script>
 	<!-- initialize the SDK after all desired features are loaded -->
 	<script defer src="/__/firebase/init.js"></script>
+	<link rel="shoetcut icon" href="img/play-store.ico" type="image/x-icon">
 </head>
 
 <body>
+	<!-- MainPage -->
 	<div data-role="page" id="mainp" data-url="mainp">
 		<div data-role="header" data-theme="b">
-			<h1>PowerApp</h1>
+			<h1><a href="index.html" style="text-decoration: none; color: white;">PowerApp</a></h1>
 			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
 				class="ui-nodisc-icon"></a>
-		</div><!-- /header -->
+		</div>
+		<!-- /header -->
 		<div role="main" class="ui-content">
-			<button onclick="googleLogin()">Login</button>
+			<a class="ui-btn" href="#login">Login</a>
 			<a class="ui-btn" href="#yourapp">Your Apps</a>
-			<a class="ui-btn" href="#rec">Recomended</a>
-		</div><!-- /content -->
+			<a class="ui-btn" href="#rec">Curated</a>
+		</div>
+		<!-- /content -->
 		<div data-role="panel" class="left-panel" data-theme="b">
-			<br><br>
-			<button onclick="googleLogin()">Login</button>
+			<br /><br />
+			<a class="ui-btn" href="#login">Login</a>
 			<a class="ui-btn" href="#mainp">Home</a>
 			<a class="ui-btn" href="#yourapp">Your Apps</a>
-			<a class="ui-btn" href="#rec">Recomended</a>
-			<!-- <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-right">Close</a> -->
-		</div><!-- /panel -->
+			<a class="ui-btn" href="#rec">Curated</a>
+		</div>
+		<!-- /panel -->
 	</div>
+	<!-- Login -->
+	<div data-role="page" id="login" data-url="login">
+		<div data-role="header" data-theme="b">
+			<h1><a href="index.html" style="text-decoration: none; color: white;">PowerApp</a></h1>
+			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+				class="ui-nodisc-icon"></a>
+		</div>
+		<!-- /header -->
+		<div role="main" class="ui-content">
+			<div style="height: 150px;"></div>
+			<form>
+				<input type="email" name="username" id="username" value="" placeholder="E-Mail/Username">
+				<input type="password" name="password" id="password" value="" autocomplete="off" placeholder="Password">
+				<input type="submit" value="Login">
+			</form>
+			<center>
+				<br><a href="#forgot">Forgot password?</a><br><br>
+				Not an user? Then do consider <a href="#signup">SIGNING-UP</a>
+				<br><br><hr><br>
+			</center>
 
+			<button onclick="googleLogin()"><img src="img/google.png" style="height: 20px; width:20px; position: relative; top: 4px; left: -5px;"> <span> Login with Google</span></button>
+		</div>
+		<!-- /content -->
+		<div data-role="panel" class="left-panel" data-theme="b">
+			<br /><br />
+			<a class="ui-btn" href="#login">Login</a>
+			<a class="ui-btn" href="#mainp">Home</a>
+			<a class="ui-btn" href="#yourapp">Your Apps</a>
+			<a class="ui-btn" href="#rec">curated</a>
+		</div>
+		<!-- /panel -->
+	</div>
+	<!-- Sign-up -->
+	<div data-role="page" id="signup" data-url="signup">
+		<div data-role="header" data-theme="b">
+			<h1><a href="index.html" style="text-decoration: none; color: white;">PowerApp</a></h1>
+			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+				class="ui-nodisc-icon"></a>
+		</div>
+		<!-- /header -->
+		<div role="main" class="ui-content">
+			<div style="height: 150px;"></div>
+			<form>
+				<input type="email" name="username" id="username" value="" placeholder="E-Mail/Username">
+				<input type="password" name="password" id="password" value="" autocomplete="off" placeholder="Password">
+				<input type="password" name="repassword" id="repassword" value="" autocomplete="off" placeholder="Re-enter Password">
+				<input type="submit" value="Sign-up">
+			</form>
+			<br><br><hr><br>
+
+			<button onclick="googleLogin()"><img src="img/google.png" style="height: 20px; width:20px; position: relative; top: 4px; left: -5px;"> <span> Sign-up with Google</span></button>
+		</div>
+		<!-- /content -->
+		<div data-role="panel" class="left-panel" data-theme="b">
+			<br /><br />
+			<a class="ui-btn" href="#login">Login</a>
+			<a class="ui-btn" href="#mainp">Home</a>
+			<a class="ui-btn" href="#yourapp">Your Apps</a>
+			<a class="ui-btn" href="#rec">curated</a>
+		</div>
+		<!-- /panel -->
+	</div>
+	<!-- YourApp -->
 	<div data-role="page" id="yourapp">
 		<div data-role="header" data-theme="b">
-			<h1>PowerApp</h1>
+			<h1><a href="index.html" style="text-decoration: none; color: white;">PowerApp</a></h1>
 			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
 				class="ui-nodisc-icon"></a>
 		</div>
@@ -64,9 +131,10 @@
 				class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left" data-transition="pop">Add App</a>
 			<div data-role="popup" id="addapp" data-theme="a" class="ui-corner-all">
 				<form>
-					<div style="padding:10px 20px;">
-						<h3>Add new App</h3><br>
-						<input type="text" name="user" id="un" value="" placeholder="AppName" data-theme="a">
+					<div style="padding: 10px 20px">
+						<h3>Add new App</h3>
+						<br />
+						<input type="text" name="user" id="un" value="" placeholder="AppName" data-theme="a" />
 						<select name="platform" id="platform">
 							<option>Platform</option>
 							<option value="windows">Windows</option>
@@ -95,28 +163,32 @@
 								<option value="official">Official Site</option>
 								<option value="other">Other</option>
 							</select>
-							<input type="text" name="sourcelink" id="sourcelink" placeholder="Source Link">
+							<input type="text" name="sourcelink" id="sourcelink" placeholder="Source Link" />
 						</div>
 						<textarea cols="40" rows="8" name="desc" id="desc" placeholder="Description"></textarea>
-						<button type="cancel" class="ui-btn ui-shadow ui-btn-inline ui-btn-icon-left">Cancel</button>
-						<button type="submit"
-							class="ui-btn ui-shadow ui-btn-b ui-btn-inline ui-btn-icon-right">Add</button>
+						<button type="cancel" class="ui-btn ui-shadow ui-btn-inline ui-btn-icon-left">
+							Cancel
+						</button>
+						<button type="submit" class="ui-btn ui-shadow ui-btn-b ui-btn-inline ui-btn-icon-right">
+							Add
+						</button>
 					</div>
 				</form>
 			</div>
 		</div>
 		<div data-role="panel" class="left-panel" data-theme="b">
-			<br><br>
-			<button onclick="googleLogin()">Login</button>
+			<br /><br />
+			<a class="ui-btn" href="#login">Login</a>
 			<a class="ui-btn" href="#mainp">Home</a>
 			<a class="ui-btn" href="#yourapp">Your Apps</a>
-			<a class="ui-btn" href="#rec">Recomended</a>
-		</div><!-- menu panel -->
+			<a class="ui-btn" href="#rec">Curated</a>
+		</div>
+		<!-- menu panel -->
 	</div>
-
+	<!-- recommended -->
 	<div data-role="page" id="rec">
 		<div data-role="header" data-theme="b">
-			<h1>PowerApp</h1>
+			<h1><a href="index.html" style="text-decoration: none; color: white;">PowerApp</a></h1>
 			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
 				class="ui-nodisc-icon"></a>
 		</div>
@@ -124,12 +196,13 @@
 			<!-- Recomended -->
 		</div>
 		<div data-role="panel" class="left-panel" data-theme="b">
-			<br><br>
-			<button onclick="googleLogin()">Login</button>
+			<br /><br />
+			<a class="ui-btn" href="#login">Login</a>
 			<a class="ui-btn" href="#mainp">Home</a>
 			<a class="ui-btn" href="#yourapp">Your Apps</a>
-			<a class="ui-btn" href="#rec">Recomended</a>
-		</div><!-- /panel -->
+			<a class="ui-btn" href="#rec">Curated</a>
+		</div>
+		<!-- /panel -->
 	</div>
 </body>
 
