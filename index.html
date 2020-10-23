@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>PowerApp</title>
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).on("mobileinit", function () {
+			$.mobile.defaultPageTransition = "slidefade";
+		});
+		const app= firebase.app();
+		function googleLogin(){
+			const provider=new firebase.auth.GoogleAuthProvider();
+			firebase.auth().signInWithPopup(provider)
+			.catch(console.log)
+		}
+	</script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<!-- update the version number as needed -->
+	<script defer src="/__/firebase/7.24.0/firebase-app.js"></script>
+	<!-- include only the Firebase features as you need -->
+	<script defer src="/__/firebase/7.24.0/firebase-auth.js"></script>
+	<script defer src="/__/firebase/7.24.0/firebase-firestore.js"></script>
+	<script defer src="/__/firebase/7.24.0/firebase-analytics.js"></script>
+	<!-- initialize the SDK after all desired features are loaded -->
+	<script defer src="/__/firebase/init.js"></script>
+</head>
+
+<body>
+	<div data-role="page" id="mainp" data-url="mainp">
+		<div data-role="header" data-theme="b">
+			<h1>PowerApp</h1>
+			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+				class="ui-nodisc-icon"></a>
+		</div><!-- /header -->
+		<div role="main" class="ui-content">
+			<button onclick="googleLogin()">Login</button>
+			<a class="ui-btn" href="#yourapp">Your Apps</a>
+			<a class="ui-btn" href="#rec">Recomended</a>
+		</div><!-- /content -->
+		<div data-role="panel" class="left-panel" data-theme="b">
+			<br><br>
+			<button onclick="googleLogin()">Login</button>
+			<a class="ui-btn" href="#mainp">Home</a>
+			<a class="ui-btn" href="#yourapp">Your Apps</a>
+			<a class="ui-btn" href="#rec">Recomended</a>
+			<!-- <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-right">Close</a> -->
+		</div><!-- /panel -->
+	</div>
+
+	<div data-role="page" id="yourapp">
+		<div data-role="header" data-theme="b">
+			<h1>PowerApp</h1>
+			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+				class="ui-nodisc-icon"></a>
+		</div>
+		<div role="main" class="ui-content">
+			<a href="#addapp" data-rel="popup" data-position-to="window"
+				class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left" data-transition="pop">Add App</a>
+			<div data-role="popup" id="addapp" data-theme="a" class="ui-corner-all">
+				<form>
+					<div style="padding:10px 20px;">
+						<h3>Add new App</h3><br>
+						<input type="text" name="user" id="un" value="" placeholder="AppName" data-theme="a">
+						<select name="platform" id="platform">
+							<option>Platform</option>
+							<option value="windows">Windows</option>
+							<option value="Linux">Linux</option>
+							<option value="mac">Mac</option>
+							<option value="android">Android</option>
+							<option value="ios">iOS</option>
+							<option value="other">Other</option>
+						</select>
+						<select name="category" id="category">
+							<option>Category</option>
+							<option value="business">Business</option>
+							<option value="entertainment">Entertainment</option>
+							<option value="games">Games</option>
+							<option value="lifestyle">Lifestyle</option>
+							<option value="personalisation">Personalisation</option>
+							<option value="productivity">Productivity</option>
+							<option value="other">Other</option>
+						</select>
+						<div class="ui-field-contain" id="slink">
+							<select name="souce" id="source">
+								<option>Source</option>
+								<option value="playstore">Play Store</option>
+								<option value="github">Github</option>
+								<option value="xda">XDA</option>
+								<option value="official">Official Site</option>
+								<option value="other">Other</option>
+							</select>
+							<input type="text" name="sourcelink" id="sourcelink" placeholder="Source Link">
+						</div>
+						<textarea cols="40" rows="8" name="desc" id="desc" placeholder="Description"></textarea>
+						<button type="cancel" class="ui-btn ui-shadow ui-btn-inline ui-btn-icon-left">Cancel</button>
+						<button type="submit"
+							class="ui-btn ui-shadow ui-btn-b ui-btn-inline ui-btn-icon-right">Add</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div data-role="panel" class="left-panel" data-theme="b">
+			<br><br>
+			<button onclick="googleLogin()">Login</button>
+			<a class="ui-btn" href="#mainp">Home</a>
+			<a class="ui-btn" href="#yourapp">Your Apps</a>
+			<a class="ui-btn" href="#rec">Recomended</a>
+		</div><!-- menu panel -->
+	</div>
+
+	<div data-role="page" id="rec">
+		<div data-role="header" data-theme="b">
+			<h1>PowerApp</h1>
+			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+				class="ui-nodisc-icon"></a>
+		</div>
+		<div role="main" class="ui-content">
+			<!-- Recomended -->
+		</div>
+		<div data-role="panel" class="left-panel" data-theme="b">
+			<br><br>
+			<button onclick="googleLogin()">Login</button>
+			<a class="ui-btn" href="#mainp">Home</a>
+			<a class="ui-btn" href="#yourapp">Your Apps</a>
+			<a class="ui-btn" href="#rec">Recomended</a>
+		</div><!-- /panel -->
+	</div>
+</body>
+
+</html>
