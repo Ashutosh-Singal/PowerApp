@@ -10,26 +10,11 @@
 		$(document).on("mobileinit", function () {
 			$.mobile.defaultPageTransition = "slidefade";
 		});
-		const app = firebase.app();
-
-		function googleLogin() {
-			const provider = new firebase.auth.GoogleAuthProvider();
-			firebase.auth().signInWithPopup(provider).catch(console.log);
-		}
 	</script>
-	<script type="text/javascript" src="js/script.js"></script>
+	<script defer src="js/script.js"></script>
 	<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
-	<link rel="stylesheet" href="css/styles.css" />
-	<!-- update the version number as needed -->
-	<script defer src="/__/firebase/7.24.0/firebase-app.js"></script>
-	<!-- include only the Firebase features as you need -->
-	<script defer src="/__/firebase/7.24.0/firebase-auth.js"></script>
-	<script defer src="/__/firebase/7.24.0/firebase-firestore.js"></script>
-	<script defer src="/__/firebase/7.24.0/firebase-analytics.js"></script>
-	<!-- initialize the SDK after all desired features are loaded -->
-	<script defer src="/__/firebase/init.js"></script>
-	<link rel="shoetcut icon" href="img/play-store.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="img/play-store.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -43,6 +28,7 @@
 		<!-- /header -->
 		<div role="main" class="ui-content">
 			<a class="ui-btn" href="#login">Login</a>
+			<a class="ui-btn" onclick="logout()">Logout</a>
 			<a class="ui-btn" href="#yourapp">Your Apps</a>
 			<a class="ui-btn" href="#rec">Curated</a>
 		</div>
@@ -66,10 +52,10 @@
 		<!-- /header -->
 		<div role="main" class="ui-content">
 			<div style="height: 150px;"></div>
-			<form>
-				<input type="email" name="username" id="username" value="" placeholder="E-Mail/Username">
-				<input type="password" name="password" id="password" value="" autocomplete="off" placeholder="Password">
-				<input type="submit" value="Login">
+			<form id="signinForm">
+				<input type="email" name="mail" id="signinmail" value="" autocomplete="off" placeholder="E-Mail">
+				<input type="password" name="password" id="signinpassword" value="" autocomplete="off" placeholder="Password">
+				<input type="submit" value="Login" onclick="emailSignin()">
 			</form>
 			<center>
 				<br><a href="#forgot">Forgot password?</a><br><br>
@@ -85,7 +71,7 @@
 			<a class="ui-btn" href="#login">Login</a>
 			<a class="ui-btn" href="#mainp">Home</a>
 			<a class="ui-btn" href="#yourapp">Your Apps</a>
-			<a class="ui-btn" href="#rec">curated</a>
+			<a class="ui-btn" href="#rec">Curated</a>
 		</div>
 		<!-- /panel -->
 	</div>
@@ -99,11 +85,10 @@
 		<!-- /header -->
 		<div role="main" class="ui-content">
 			<div style="height: 150px;"></div>
-			<form>
-				<input type="email" name="username" id="username" value="" placeholder="E-Mail/Username">
-				<input type="password" name="password" id="password" value="" autocomplete="off" placeholder="Password">
-				<input type="password" name="repassword" id="repassword" value="" autocomplete="off" placeholder="Re-enter Password">
-				<input type="submit" value="Sign-up">
+			<form id="signupForm">
+				<input type="email" name="mail" id="signupmail" value="" autocomplete="off" placeholder="E-Mail">
+				<input type="password" name="password" id="signuppassword" value="" autocomplete="off" placeholder="Password">
+				<input type="submit" value="Sign-up" onclick="emailSignup()">
 			</form>
 			<br><br><hr><br>
 
@@ -115,7 +100,33 @@
 			<a class="ui-btn" href="#login">Login</a>
 			<a class="ui-btn" href="#mainp">Home</a>
 			<a class="ui-btn" href="#yourapp">Your Apps</a>
-			<a class="ui-btn" href="#rec">curated</a>
+			<a class="ui-btn" href="#rec">Curated</a>
+		</div>
+		<!-- /panel -->
+	</div>
+	<!-- Forgot Psasword -->
+	<div data-role="page" id="forgot" data-url="forgot">
+		<div data-role="header" data-theme="b">
+			<h1><a href="index.html" style="text-decoration: none; color: white;">PowerApp</a></h1>
+			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+				class="ui-nodisc-icon"></a>
+		</div>
+		<!-- /header -->
+		<div role="main" class="ui-content">
+			<div style="height: 200px;"></div>
+			<form id="forgotForm">
+				<label for="textarea">Enter registered e-mail id:</label>
+				<input type="email" name="mail" id="forgotmail" value="" autocomplete="off" placeholder="E-Mail">
+				<input type="submit" value="Reset Passwoed">
+			</form>
+		</div>
+		<!-- /content -->
+		<div data-role="panel" class="left-panel" data-theme="b">
+			<br /><br />
+			<a class="ui-btn" href="#login">Login</a>
+			<a class="ui-btn" href="#mainp">Home</a>
+			<a class="ui-btn" href="#yourapp">Your Apps</a>
+			<a class="ui-btn" href="#rec">Curated</a>
 		</div>
 		<!-- /panel -->
 	</div>
@@ -138,7 +149,7 @@
 						<select name="platform" id="platform">
 							<option>Platform</option>
 							<option value="windows">Windows</option>
-							<option value="Linux">Linux</option>
+							<option value="linux">Linux</option>
 							<option value="mac">Mac</option>
 							<option value="android">Android</option>
 							<option value="ios">iOS</option>
@@ -185,7 +196,7 @@
 		</div>
 		<!-- menu panel -->
 	</div>
-	<!-- recommended -->
+	<!-- curated -->
 	<div data-role="page" id="rec">
 		<div data-role="header" data-theme="b">
 			<h1><a href="index.html" style="text-decoration: none; color: white;">PowerApp</a></h1>
@@ -193,7 +204,8 @@
 				class="ui-nodisc-icon"></a>
 		</div>
 		<div role="main" class="ui-content">
-			<!-- Recomended -->
+			<div id="curated">
+			</div>
 		</div>
 		<div data-role="panel" class="left-panel" data-theme="b">
 			<br /><br />
@@ -204,6 +216,19 @@
 		</div>
 		<!-- /panel -->
 	</div>
+	<!-- update the version number as needed -->
+	<script src="/__/firebase/7.24.0/firebase-app.js"></script>
+	<!-- include only the Firebase features as you need -->
+	<script src="/__/firebase/7.24.0/firebase-auth.js"></script>
+	<script src="/__/firebase/7.24.0/firebase-firestore.js"></script>
+	<!-- initialize the SDK after all desired features are loaded -->
+	<script src="/__/firebase/init.js"></script>
+	<script>
+		const auth = firebase.auth();
+		const db = firebase.firestore();
+	</script>
+	<script type="text/javascript" src="js/auth.js"></script>
+	<script type="text/javascript" src="js/fstore.js"></script>
 </body>
 
 </html>

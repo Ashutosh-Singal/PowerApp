@@ -1,4 +1,3 @@
-
 (function() {
 	  let alreadyInsertedMetaTag = false
 	  function __insertDappDetected() {
@@ -37,6 +36,7 @@
 	    })
 	  }
 	})()
+
 $(document).on("pagecreate", "#mainp", function () {
 	$(document).on("swiperight", "#mainp", function (e) {
 		if ($(".ui-page-active").jqmData("panel") !== "open") {
