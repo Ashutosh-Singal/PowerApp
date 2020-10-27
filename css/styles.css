@@ -1,0 +1,12 @@
+.app-ui{
+    padding: 15px;
+    height: 100%;
+}
+.app-ui .block-a{
+    float: left;
+    width: 25%;
+}
+.app-ui .block-b{
+    float: left;
+    width: 75%;
+}
