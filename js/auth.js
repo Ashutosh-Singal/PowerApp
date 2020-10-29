@@ -7,6 +7,7 @@ auth.onAuthStateChanged(user=>{
         db.collection('curated').onSnapshot(snapshot=>{
             setupCurated(snapshot.docs)
         });
+        //bring user apps
         db.collection(user.uid).onSnapshot(snapshot=>{
             setupAddedApp(snapshot.docs)
         });

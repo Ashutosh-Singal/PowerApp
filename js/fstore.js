@@ -20,21 +20,27 @@ const setupCurated = (data) => {
             } else {
                 img = 'img/other.png'
             }
-            
             const div = `
+
                 <div class="app-ui">    
-                <div class="block-a"><img src="${img}" style="height: 80px; width: 70px;"></div>
+                    <div class="block-a">
+                        <img src="${img}" style="height: 80px; width: 70px;">
+                    </div>
                     <div class="block-b">
                         <div class="ui-body ui-body-d"><strong>${rec.Name}</strong></div>
                         <div class="ui-body ui-body-d"><strong>Category : </strong>${rec.Category}</div>
                         <div class="ui-body ui-body-d"><strong>Platform : </strong>${rec.Platform}</div>
-                        <div class="ui-grid-a">
-                            <div class="ui-block-a"><div class="ui-body ui-body-d"><a class="ui-btn ui-shadow ui-btn-b" href="${rec.Link}" style="font-size: 12px ;" >Details</a></div></div>
-                            <div class="ui-block-b"><div class="ui-body ui-body-d"><a class="ui-btn ui-shadow ui-btn-b" href="${rec.Link}" style="font-size: 12px;">Download</a></div></div>
-                        </div>
                     </div>
-                    <hr>
+                </div><br>
+                <div class="app-ui">
+                    <!-- <div class="block-a1">
+                        <a href=".detailapp" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-b" data-transition="pop" style="font-size: 12px ;" >Details</a>                            
+                    </div>-->
+                    <div class="block-b1">
+                        <a class="ui-btn ui-corner-all ui-shadow ui-btn-b" href="${rec.Link}" style="font-size: 12px;">Download</a>
+                    </div>
                 </div>
+                <hr>
             `;
             html += div;
         });
@@ -84,20 +90,31 @@ const setupAddedApp = (data) => {
             } else {
                 img = 'img/other.png'
             }
-            
             const div = `
+            <div>
                 <div class="app-ui">    
-                <div class="block-a"><img src="${img}" style="height: 80px; width: 70px;"></div>
+                    <div class="block-a">
+                        <img src="${img}" style="height: 80px; width: 70px;">
+                    </div>
                     <div class="block-b">
                         <div class="ui-body ui-body-d"><strong>${rec.Name}</strong></div>
                         <div class="ui-body ui-body-d"><strong>Category : </strong>${rec.Category}</div>
                         <div class="ui-body ui-body-d"><strong>Platform : </strong>${rec.Platform}</div>
-                        <div class="ui-grid-a">
+                        <!-- <div class="ui-grid-a">
                             <div class="ui-block-a"><div class="ui-body ui-body-d"><a class="ui-btn ui-shadow ui-btn-b" href="${rec.Link}" style="font-size: 12px ;" >Details</a></div></div>
                             <div class="ui-block-b"><div class="ui-body ui-body-d"><a class="ui-btn ui-shadow ui-btn-b" href="${rec.Link}" style="font-size: 12px;">Download</a></div></div>
-                        </div>
+                        </div> -->
                     </div>
-                    <hr>
+                </div>
+                <div class="app-ui">
+                    <!-- <div class="block-a1">
+                        <a href=".detailapp" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-b" data-transition="pop" style="font-size: 12px ;" >Details</a>                            
+                    </div>-->
+                    <div class="block-b1">
+                        <a class="ui-btn ui-corner-all ui-shadow ui-btn-b" href="${rec.Link}" style="font-size: 12px;">Download</a>
+                    </div>
+                </div>
+                <hr>
                 </div>
             `;
             html += div;

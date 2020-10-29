@@ -2,11 +2,15 @@
     padding: 15px;
     height: 100%;
 }
-.app-ui .block-a{
+.app-ui .block-a {
     float: left;
     width: 25%;
 }
-.app-ui .block-b{
+.app-ui .block-b {
     float: left;
     width: 75%;
+}
+.app-ui .block-a1, .app-ui .block-b1 {
+    float: left;
+    width: 50%;
 }
