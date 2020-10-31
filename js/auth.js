@@ -1,4 +1,5 @@
 //listen for auth status change
+let adminStatus=0;
 auth.onAuthStateChanged(user=>{
     if (user){
         console.log("User Logged In :", user);
@@ -56,11 +57,21 @@ function logout() {
 //Logged-in Logged-out UI Changes
 const loggedOutLinks= document.querySelectorAll('.logged-out');
 const loggedInLinks= document.querySelectorAll('.logged-in');
+const adminLinks= document.querySelectorAll('.adminLink');
 const accountDetails = document.getElementById("usr");
 let uid="";
 const setupUI=(user)=>{
 	if(user){
-        uid = user.uid
+        uid = user.uid;
+        if(uid.localeCompare(adminUid)==0){
+            console.log("Admin Logged in");
+            adminLinks.forEach(item=>item.style.display='block');
+            adminStatus=1;
+        }else{
+            console.log("Regular user logged in");
+            adminLinks.forEach(item=>item.style.display='none');
+            adminStatus=0;
+        }
 		//toogle UI Elements
 		loggedInLinks.forEach(item=>item.style.display='block');
         loggedOutLinks.forEach(item=>item.style.display='none');

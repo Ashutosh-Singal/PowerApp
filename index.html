@@ -171,8 +171,7 @@
 			<div data-role="popup" id="addapp" data-theme="a" class="ui-corner-all">
 				<form id="new-app">
 					<div style="padding: 10px 20px">
-						<h3>Add new App</h3>
-						<br />
+						<h3>Add New App</h3>
 						<input type="text" name="user" id="app-name" value="" placeholder="AppName" data-theme="a" />
 						<select name="platform" id="platform">
 							<option>Platform</option>
@@ -234,10 +233,55 @@
 	<div data-role="page" id="rec">
 		<div data-role="header" data-theme="b">
 			<h1><a href="#mainp" style="text-decoration: none; color: white;">PowerApp</a></h1>
-			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
-				class="ui-nodisc-icon"></a>
+			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon"></a>
 		</div>
 		<div role="main" class="ui-content">
+			<a href="#addCuratedApp" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left adminLink" data-transition="pop" style="display: none;">Add Curated App</a>
+			<div data-role="popup" id="addCuratedApp" data-theme="a" class="ui-corner-all">
+				<form id="new-curated-app">
+					<div style="padding: 10px 20px">
+						<h3>Add new Curated App</h3>
+						<input type="text" name="user" id="curated-app-name" value="" placeholder="AppName" data-theme="a" />
+						<select name="curated-platform" id="platform">
+							<option>Platform</option>
+							<option value="Windows">Windows</option>
+							<option value="Linux">Linux</option>
+							<option value="Mac">Mac</option>
+							<option value="Android">Android</option>
+							<option value="iOS">iOS</option>
+							<option value="Other">Other</option>
+						</select>
+						<select name="curated-category" id="category">
+							<option>Category</option>
+							<option value="Business">Business</option>
+							<option value="Entertainment">Entertainment</option>
+							<option value="Games">Games</option>
+							<option value="Lifestyle">Lifestyle</option>
+							<option value="Personalisation">Personalisation</option>
+							<option value="Productivity">Productivity</option>
+							<option value="Other">Other</option>
+						</select>
+						<div class="ui-field-contain" id="slink">
+							<select name="curated-souce" id="source">
+								<option>Source</option>
+								<option value="Play Store">Play Store</option>
+								<option value="Github">Github</option>
+								<option value="XDA">XDA</option>
+								<option value="Official Site">Official Site</option>
+								<option value="Other">Other</option>
+							</select>
+							<input type="text" name="sourcelink" id="curated-sourcelink" placeholder="Source Link" />
+						</div>
+						<textarea cols="40" rows="8" name="desc" id="curated-desc" placeholder="Description"></textarea>
+						<button type="cancel" class="ui-btn ui-shadow ui-btn-inline ui-btn-icon-left">
+							Cancel
+						</button>
+						<button type="submit" class="ui-btn ui-shadow ui-btn-b ui-btn-inline ui-btn-icon-right" onclick="addCuratedApp()">
+							Add
+						</button>
+					</div>
+				</form>
+			</div>
 			<form>
 				<input data-type="search" id="curated-search">
 			</form>
@@ -267,6 +311,7 @@
 		const auth = firebase.auth();
 		const db = firebase.firestore();
 	</script>
+	<script type="text/javascript" src="js/admin.js"></script>
 	<script type="text/javascript" src="js/auth.js"></script>
 	<script type="text/javascript" src="js/fstore.js"></script>
 </body>

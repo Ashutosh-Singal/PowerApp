@@ -5,6 +5,7 @@ const setupCurated = (data) => {
     if (data.length) {
         data.forEach(doc => {
             const rec = doc.data();
+            docId=doc.id;
             //console.log(rec)
             var img = '';
             if (rec.Platform.localeCompare("Android") == 0) {
@@ -20,7 +21,32 @@ const setupCurated = (data) => {
             } else {
                 img = 'img/other.png'
             }
-            const div = `
+            let div =``;
+            if(adminStatus==1){
+                div = `
+                <div>
+                    <div class="app-ui">    
+                        <div class="block-a">
+                            <img src="${img}" style="height: 80px; width: 70px;">
+                        </div>
+                        <div class="block-b">
+                            <div class="ui-body ui-body-d"><strong>${rec.Name}</strong></div>
+                            <div class="ui-body ui-body-d"><strong>Category : </strong>${rec.Category}</div>
+                            <div class="ui-body ui-body-d"><strong>Platform : </strong>${rec.Platform}</div>
+                        </div>
+                    </div>
+                    <div class="app-ui">
+                        <div class="block-a1">
+                            <a class="ui-btn ui-corner-all ui-shadow ui-btn-b" style="font-size: 12px ;" onclick="curatedDelete('${docId}')" >Delete</a>                            
+                        </div>
+                        <div class="block-b1">
+                            <a class="ui-btn ui-corner-all ui-shadow ui-btn-b" href="${rec.Link}" style="font-size: 12px;">Download</a>
+                        </div>
+                    </div>
+                </div>  
+                `;
+            }else{
+                div = `
                 <div>
                     <div class="app-ui">    
                         <div class="block-a">
@@ -36,7 +62,8 @@ const setupCurated = (data) => {
                         <a class="ui-btn ui-corner-all ui-shadow ui-btn-b" href="${rec.Link}" style="font-size: 12px;">Download</a>
                     </div>
                 </div>  
-            `;
+                `;
+            }
             html += div;
         });
         curated.innerHTML = html;
@@ -54,7 +81,6 @@ function addApp(){
     const source=newApp['source'].value;
     const sourceLink=newApp['sourcelink'].value;
     const desc=newApp['desc'].value;
-    console.log(appName, platform, category, source, sourceLink, desc, uid);
     db.collection(uid).add({
         Name:appName,
         Platform:platform,
@@ -63,6 +89,25 @@ function addApp(){
         Link:sourceLink,
         Description:desc
     });
+    document.getElementById("new-app").reset();
+}
+function addCuratedApp(){
+    const newApp= document.querySelector('#new-curated-app');
+    const appName=newApp['curated-app-name'].value;
+    const platform=newApp['curated-platform'].value;
+    const category=newApp['curated-category'].value;
+    const source=newApp['curated-souce'].value;
+    const sourceLink=newApp['curated-sourcelink'].value;
+    const desc=newApp['curated-desc'].value;
+    db.collection("curated").add({
+        Name:appName,
+        Platform:platform,
+        Category:category,
+        Source:source,
+        Link:sourceLink,
+        Description:desc
+    });
+    document.getElementById("new-curated-app").reset();
 }
 const addedApp = document.querySelector('#addedApp')
 const setupAddedApp = (data) => {
@@ -122,8 +167,14 @@ const setupAddedApp = (data) => {
 }
 
 function appDelete(docId){
-    console.log(docId, uid);
     db.collection(uid).doc(docId).delete().then(function() {
+        console.log("App successfully deleted!");
+    }).catch(function(error) {
+        console.error("Error removing app: ", error);
+    });
+}
+function curatedDelete(docId){
+    db.collection("curated").doc(docId).delete().then(function() {
         console.log("App successfully deleted!");
     }).catch(function(error) {
         console.error("Error removing app: ", error);
