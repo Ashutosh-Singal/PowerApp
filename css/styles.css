@@ -10,7 +10,11 @@
     float: left;
     width: 75%;
 }
-.app-ui .block-a1, .app-ui .block-b1 {
+.app-ui .block-a1 {
     float: left;
-    width: 50%;
+    width: 49.5%;
+}
+.app-ui .block-b1{
+    float: right;
+    width: 49.5%;
 }

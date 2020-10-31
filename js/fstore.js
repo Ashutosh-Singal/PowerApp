@@ -21,26 +21,21 @@ const setupCurated = (data) => {
                 img = 'img/other.png'
             }
             const div = `
-
-                <div class="app-ui">    
-                    <div class="block-a">
-                        <img src="${img}" style="height: 80px; width: 70px;">
+                <div>
+                    <div class="app-ui">    
+                        <div class="block-a">
+                            <img src="${img}" style="height: 80px; width: 70px;">
+                        </div>
+                        <div class="block-b">
+                            <div class="ui-body ui-body-d"><strong>${rec.Name}</strong></div>
+                            <div class="ui-body ui-body-d"><strong>Category : </strong>${rec.Category}</div>
+                            <div class="ui-body ui-body-d"><strong>Platform : </strong>${rec.Platform}</div>
+                        </div>
                     </div>
-                    <div class="block-b">
-                        <div class="ui-body ui-body-d"><strong>${rec.Name}</strong></div>
-                        <div class="ui-body ui-body-d"><strong>Category : </strong>${rec.Category}</div>
-                        <div class="ui-body ui-body-d"><strong>Platform : </strong>${rec.Platform}</div>
-                    </div>
-                </div><br>
-                <div class="app-ui">
-                    <!-- <div class="block-a1">
-                        <a href=".detailapp" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-b" data-transition="pop" style="font-size: 12px ;" >Details</a>                            
-                    </div>-->
-                    <div class="block-b1">
+                    <div class="app-ui">
                         <a class="ui-btn ui-corner-all ui-shadow ui-btn-b" href="${rec.Link}" style="font-size: 12px;">Download</a>
                     </div>
-                </div>
-                <hr>
+                </div>  
             `;
             html += div;
         });
@@ -75,7 +70,8 @@ const setupAddedApp = (data) => {
     if (data.length) {
         data.forEach(doc => {
             const rec = doc.data();
-            console.log(rec)
+            // console.log(doc.id);
+            docId=doc.id;
             var img = '';
             if (rec.Platform.localeCompare("Android") == 0) {
                 img = 'img/android.png'
@@ -107,15 +103,14 @@ const setupAddedApp = (data) => {
                     </div>
                 </div>
                 <div class="app-ui">
-                    <!-- <div class="block-a1">
-                        <a href=".detailapp" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-b" data-transition="pop" style="font-size: 12px ;" >Details</a>                            
-                    </div>-->
+                    <div class="block-a1">
+                        <a class="ui-btn ui-corner-all ui-shadow ui-btn-b" style="font-size: 12px ;" onclick="appDelete('${docId}')" >Delete</a>                            
+                    </div>
                     <div class="block-b1">
                         <a class="ui-btn ui-corner-all ui-shadow ui-btn-b" href="${rec.Link}" style="font-size: 12px;">Download</a>
                     </div>
                 </div>
-                <hr>
-                </div>
+            </div>
             `;
             html += div;
         });
@@ -124,4 +119,13 @@ const setupAddedApp = (data) => {
         html = `<center><h5>No Apps Added</h5></center>`
         addedApp.innerHTML = html;
     }
+}
+
+function appDelete(docId){
+    console.log(docId, uid);
+    db.collection(uid).doc(docId).delete().then(function() {
+        console.log("App successfully deleted!");
+    }).catch(function(error) {
+        console.error("Error removing app: ", error);
+    });
 }
