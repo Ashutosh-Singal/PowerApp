@@ -23,7 +23,7 @@
 	<div data-role="page" id="mainp" data-url="mainp">
 		<div data-role="header" data-theme="b">
 			<h1><a href="#mainp" style="text-decoration: none; color: white;">PowerApp</a></h1>
-			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+			<a href=".left-panel-main" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
 				class="ui-nodisc-icon"></a>
 		</div>
 		<!-- /header -->
@@ -48,7 +48,7 @@
 	</div>
 		</div>
 		<!-- /content -->
-		<div data-role="panel" class="left-panel" data-theme="b">
+		<div data-role="panel" class="left-panel-main" data-theme="b">
 			<br /><br />
 			<a class="logged-out ui-btn" href="#login">Login</a>
 			<a class="logged-in ui-btn" href="#yourapp">Your Apps</a>
@@ -61,15 +61,15 @@
 	<div data-role="page" id="login" data-url="login">
 		<div data-role="header" data-theme="b">
 			<h1><a href="#mainp" style="text-decoration: none; color: white;">PowerApp</a></h1>
-			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+			<a href=".left-panel-login" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
 				class="ui-nodisc-icon"></a>
 		</div>
 		<!-- /header -->
 		<div role="main" class="ui-content">
 			<div style="height: 150px;"></div>
-			<form id="signinForm">
-				<input type="email" name="mail" id="signinmail" value="" placeholder="E-Mail">
-				<input type="password" name="password" id="signinpassword" value="" placeholder="Password">
+			<form id="signinForm" action="#mainp">
+				<input type="email" name="mail" id="signinmail" value="" placeholder="E-Mail" required>
+				<input type="password" name="password" id="signinpassword" value="" placeholder="Password" required>
 				<input type="submit" value="Login" onclick="emailSignin()">
 			</form>
 			<center>
@@ -88,9 +88,9 @@
 					Google</span></button>
 		</div>
 		<!-- /content -->
-		<div data-role="panel" class="left-panel" data-theme="b">
+		<div data-role="panel" class="left-panel-login" data-theme="b">
 			<br /><br />
-			<a class="logged-in ui-btn" href="#mainp">Home</a>
+			<a class="ui-btn" href="#mainp">Home</a>
 			<a class="logged-in ui-btn" href="#yourapp">Your Apps</a>
 			<a class="logged-in ui-btn" href="#rec">Curated</a>
 			<a class="logged-in ui-btn" onclick="logout()">Logout</a>
@@ -101,15 +101,15 @@
 	<div data-role="page" id="signup" data-url="signup">
 		<div data-role="header" data-theme="b">
 			<h1><a href="#mainp" style="text-decoration: none; color: white;">PowerApp</a></h1>
-			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+			<a href=".left-panel-signup" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
 				class="ui-nodisc-icon"></a>
 		</div>
 		<!-- /header -->
 		<div role="main" class="ui-content">
 			<div style="height: 150px;"></div>
-			<form id="signupForm">
-				<input type="email" name="mail" id="signupmail" value="" placeholder="E-Mail">
-				<input type="password" name="password" id="signuppassword" value="" placeholder="Password">
+			<form id="signupForm" action="#mainp">
+				<input type="email" name="mail" id="signupmail" value="" placeholder="E-Mail" required>
+				<input type="password" name="password" id="signuppassword" value="" placeholder="Password" required>
 				<!-- <input type="password" name="repassword" id="signuprepassword" value="" placeholder="Re-Enter Password"> -->
 				<input type="submit" value="Sign-up" onclick="emailSignup()">
 			</form>
@@ -121,10 +121,10 @@
 					Google</span></button>
 		</div>
 		<!-- /content -->
-		<div data-role="panel" class="left-panel" data-theme="b">
+		<div data-role="panel" class="left-panel-signup" data-theme="b">
 			<br /><br />
 			<a class="logged-out ui-btn" href="#login">Login</a>
-			<a class="logged-in ui-btn" href="#mainp">Home</a>
+			<a class="ui-btn" href="#mainp">Home</a>
 			<a class="logged-in ui-btn" href="#yourapp">Your Apps</a>
 			<a class="logged-in ui-btn" href="#rec">Curated</a>
 			<a class="logged-in ui-btn" onclick="logout()">Logout</a>
@@ -135,7 +135,7 @@
 	<div data-role="page" id="forgot" data-url="forgot">
 		<div data-role="header" data-theme="b">
 			<h1><a href="#mainp" style="text-decoration: none; color: white;">PowerApp</a></h1>
-			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+			<a href=".left-panel-forgot" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
 				class="ui-nodisc-icon"></a>
 		</div>
 		<!-- /header -->
@@ -143,12 +143,12 @@
 			<div style="height: 200px;"></div>
 			<form id="forgotForm">
 				<label for="textarea">Enter registered e-mail id:</label>
-				<input type="email" name="mail" id="forgotmail" value="" placeholder="E-Mail">
+				<input type="email" name="mail" id="forgotmail" value="" placeholder="E-Mail" required>
 				<input type="submit" value="Reset Passwoed">
 			</form>
 		</div>
 		<!-- /content -->
-		<div data-role="panel" class="left-panel" data-theme="b">
+		<div data-role="panel" class="left-panel-forgot" data-theme="b">
 			<br /><br />
 			<a class="logged-out ui-btn" href="#login">Login</a>
 			<a class="logged-in ui-btn" href="#mainp">Home</a>
@@ -162,19 +162,19 @@
 	<div data-role="page" id="yourapp">
 		<div data-role="header" data-theme="b">
 			<h1><a href="#mainp" style="text-decoration: none; color: white;">PowerApp</a></h1>
-			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+			<a href=".left-panel-yourapp" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
 				class="ui-nodisc-icon"></a>
 		</div>
 		<div role="main" class="ui-content">
 			<a href="#addapp" data-rel="popup" data-position-to="window"
 				class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left" data-transition="pop">Add App</a>
 			<div data-role="popup" id="addapp" data-theme="a" class="ui-corner-all">
-				<form id="new-app">
+				<form id="new-app" action="#yourapp">
 					<div style="padding: 10px 20px">
 						<h3>Add New App</h3>
-						<input type="text" name="user" id="app-name" value="" placeholder="AppName" data-theme="a" />
-						<select name="platform" id="platform">
-							<option>Platform</option>
+						<input type="text" name="user" id="app-name" value="" placeholder="AppName" data-theme="a" autocomplete="off" required/>
+						<select name="platform" id="platform" required>
+							<option value="" disabled selected>Platform</option>
 							<option value="Windows">Windows</option>
 							<option value="Linux">Linux</option>
 							<option value="Mac">Mac</option>
@@ -182,8 +182,8 @@
 							<option value="iOS">iOS</option>
 							<option value="Other">Other</option>
 						</select>
-						<select name="category" id="category">
-							<option>Category</option>
+						<select name="category" id="category" required>
+							<option value="" disabled selected>Category</option>
 							<option value="Business">Business</option>
 							<option value="Entertainment">Entertainment</option>
 							<option value="Games">Games</option>
@@ -193,18 +193,18 @@
 							<option value="Other">Other</option>
 						</select>
 						<div class="ui-field-contain" id="slink">
-							<select name="souce" id="source">
-								<option>Source</option>
+							<select name="souce" id="source" required>
+								<option value="" disabled selected>Source</option>
 								<option value="Play Store">Play Store</option>
 								<option value="Github">Github</option>
 								<option value="XDA">XDA</option>
 								<option value="Official Site">Official Site</option>
 								<option value="Other">Other</option>
 							</select>
-							<input type="text" name="sourcelink" id="sourcelink" placeholder="Source Link" />
+							<input type="text" name="sourcelink" id="sourcelink" placeholder="Source Link" autocomplete="off" required/>
 						</div>
-						<textarea cols="40" rows="8" name="desc" id="desc" placeholder="Description"></textarea>
-						<button type="cancel" class="ui-btn ui-shadow ui-btn-inline ui-btn-icon-left">
+						<textarea cols="40" rows="8" name="desc" id="desc" placeholder="Description" autocomplete="off" required></textarea>
+						<button type="submit" class="ui-btn ui-shadow ui-btn-inline ui-btn-icon-left">
 							Cancel
 						</button>
 						<button type="submit" class="ui-btn ui-shadow ui-btn-b ui-btn-inline ui-btn-icon-right" onclick="addApp()">
@@ -220,7 +220,7 @@
 
 			</div>
 		</div>
-		<div data-role="panel" class="left-panel" data-theme="b">
+		<div data-role="panel" class="left-panel-yourapp" data-theme="b">
 			<br /><br />
 			<a class="logged-out ui-btn" href="#login">Login</a>
 			<a class="logged-in ui-btn" href="#mainp">Home</a>
@@ -233,17 +233,17 @@
 	<div data-role="page" id="rec">
 		<div data-role="header" data-theme="b">
 			<h1><a href="#mainp" style="text-decoration: none; color: white;">PowerApp</a></h1>
-			<a href=".left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon"></a>
+			<a href=".left-panel-curated" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon"></a>
 		</div>
 		<div role="main" class="ui-content">
 			<a href="#addCuratedApp" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left adminLink" data-transition="pop" style="display: none;">Add Curated App</a>
 			<div data-role="popup" id="addCuratedApp" data-theme="a" class="ui-corner-all">
-				<form id="new-curated-app">
+				<form id="new-curated-app" action="#rec">
 					<div style="padding: 10px 20px">
 						<h3>Add new Curated App</h3>
-						<input type="text" name="user" id="curated-app-name" value="" placeholder="AppName" data-theme="a" />
-						<select name="curated-platform" id="platform">
-							<option>Platform</option>
+						<input type="text" name="user" id="curated-app-name" value="" placeholder="AppName" data-theme="a" autocomplete="off" required/>
+						<select name="platform" id="curated-platform" required>
+							<option value="" disabled selected>Platform</option>
 							<option value="Windows">Windows</option>
 							<option value="Linux">Linux</option>
 							<option value="Mac">Mac</option>
@@ -251,8 +251,8 @@
 							<option value="iOS">iOS</option>
 							<option value="Other">Other</option>
 						</select>
-						<select name="curated-category" id="category">
-							<option>Category</option>
+						<select name="category" id="curated-category" required>
+							<option value="" disabled selected>Category</option>
 							<option value="Business">Business</option>
 							<option value="Entertainment">Entertainment</option>
 							<option value="Games">Games</option>
@@ -262,18 +262,18 @@
 							<option value="Other">Other</option>
 						</select>
 						<div class="ui-field-contain" id="slink">
-							<select name="curated-souce" id="source">
-								<option>Source</option>
+							<select name="souce" id="curated-source" required>
+								<option value="" disabled selected>Source</option>
 								<option value="Play Store">Play Store</option>
 								<option value="Github">Github</option>
 								<option value="XDA">XDA</option>
 								<option value="Official Site">Official Site</option>
 								<option value="Other">Other</option>
 							</select>
-							<input type="text" name="sourcelink" id="curated-sourcelink" placeholder="Source Link" />
+							<input type="text" name="sourcelink" id="curated-sourcelink" placeholder="Source Link" autocomplete="off" required/>
 						</div>
-						<textarea cols="40" rows="8" name="desc" id="curated-desc" placeholder="Description"></textarea>
-						<button type="cancel" class="ui-btn ui-shadow ui-btn-inline ui-btn-icon-left">
+						<textarea cols="40" rows="8" name="desc" id="curated-desc" placeholder="Description" autocomplete="off" required></textarea>
+						<button type="submit" class="ui-btn ui-shadow ui-btn-inline ui-btn-icon-left">
 							Cancel
 						</button>
 						<button type="submit" class="ui-btn ui-shadow ui-btn-b ui-btn-inline ui-btn-icon-right" onclick="addCuratedApp()">
@@ -291,7 +291,7 @@
 				<!-- Curated apps from firestore-->
 			</div>
 		</div>
-		<div data-role="panel" class="left-panel" data-theme="b">
+		<div data-role="panel" class="left-panel-curated" data-theme="b">
 			<br /><br />
 			<a class="logged-out ui-btn" href="#login">Login</a>
 			<a class="ui-btn" href="#mainp">Home</a>

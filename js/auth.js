@@ -23,7 +23,7 @@ auth.onAuthStateChanged(user=>{
 //Google Login
 function googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider).catch(console.log).then(cres=>{
+    auth.signInWithPopup(provider).catch(console.log).then(cred=>{
         window.location.hash='#mainp';
     });
 }

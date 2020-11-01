@@ -88,17 +88,18 @@ function addApp(){
         Source:source,
         Link:sourceLink,
         Description:desc
+    }).then(()=>{
+        document.getElementById("new-app").reset();
     });
-    document.getElementById("new-app").reset();
 }
 function addCuratedApp(){
     const newApp= document.querySelector('#new-curated-app');
-    const appName=newApp['curated-app-name'].value;
-    const platform=newApp['curated-platform'].value;
-    const category=newApp['curated-category'].value;
-    const source=newApp['curated-souce'].value;
-    const sourceLink=newApp['curated-sourcelink'].value;
-    const desc=newApp['curated-desc'].value;
+    const appName=document.getElementById('curated-app-name').value;
+    const platform=document.getElementById('curated-platform').value;
+    const category=document.getElementById('curated-category').value;
+    const source=document.getElementById('curated-souce').value;
+    const sourceLink=document.getElementById('curated-sourcelink').value;
+    const desc=document.getElementById('curated-desc').value;
     db.collection("curated").add({
         Name:appName,
         Platform:platform,
@@ -106,8 +107,10 @@ function addCuratedApp(){
         Source:source,
         Link:sourceLink,
         Description:desc
+    }).then(()=>{
+        document.getElementById("new-curated-app").reset();
     });
-    document.getElementById("new-curated-app").reset();
+    
 }
 const addedApp = document.querySelector('#addedApp')
 const setupAddedApp = (data) => {
