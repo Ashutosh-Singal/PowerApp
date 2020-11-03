@@ -23,8 +23,7 @@
 	<div data-role="page" id="mainp" data-url="mainp">
 		<div data-role="header" data-theme="b">
 			<h1><a href="#mainp" style="text-decoration: none; color: white;">PowerApp</a></h1>
-			<a href=".left-panel-main" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
-				class="ui-nodisc-icon"></a>
+			<a href="#left-panel-main" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon"></a>
 		</div>
 		<!-- /header -->
 		<div role="main" class="ui-content">
@@ -48,7 +47,7 @@
 	</div>
 		</div>
 		<!-- /content -->
-		<div data-role="panel" class="left-panel-main" data-theme="b">
+		<div data-role="panel" id="left-panel-main" data-theme="b">
 			<br /><br />
 			<a class="logged-out ui-btn" href="#login">Login</a>
 			<a class="logged-in ui-btn" href="#yourapp">Your Apps</a>
@@ -61,7 +60,7 @@
 	<div data-role="page" id="login" data-url="login">
 		<div data-role="header" data-theme="b">
 			<h1><a href="#mainp" style="text-decoration: none; color: white;">PowerApp</a></h1>
-			<a href=".left-panel-login" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+			<a href="#left-panel-login" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
 				class="ui-nodisc-icon"></a>
 		</div>
 		<!-- /header -->
@@ -88,7 +87,7 @@
 					Google</span></button>
 		</div>
 		<!-- /content -->
-		<div data-role="panel" class="left-panel-login" data-theme="b">
+		<div data-role="panel" id="left-panel-login" data-theme="b">
 			<br /><br />
 			<a class="ui-btn" href="#mainp">Home</a>
 			<a class="logged-in ui-btn" href="#yourapp">Your Apps</a>
@@ -101,7 +100,7 @@
 	<div data-role="page" id="signup" data-url="signup">
 		<div data-role="header" data-theme="b">
 			<h1><a href="#mainp" style="text-decoration: none; color: white;">PowerApp</a></h1>
-			<a href=".left-panel-signup" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+			<a href="#left-panel-signup" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
 				class="ui-nodisc-icon"></a>
 		</div>
 		<!-- /header -->
@@ -121,7 +120,7 @@
 					Google</span></button>
 		</div>
 		<!-- /content -->
-		<div data-role="panel" class="left-panel-signup" data-theme="b">
+		<div data-role="panel" id="left-panel-signup" data-theme="b">
 			<br /><br />
 			<a class="logged-out ui-btn" href="#login">Login</a>
 			<a class="ui-btn" href="#mainp">Home</a>
@@ -135,7 +134,7 @@
 	<div data-role="page" id="forgot" data-url="forgot">
 		<div data-role="header" data-theme="b">
 			<h1><a href="#mainp" style="text-decoration: none; color: white;">PowerApp</a></h1>
-			<a href=".left-panel-forgot" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+			<a href="#left-panel-forgot" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
 				class="ui-nodisc-icon"></a>
 		</div>
 		<!-- /header -->
@@ -148,7 +147,7 @@
 			</form>
 		</div>
 		<!-- /content -->
-		<div data-role="panel" class="left-panel-forgot" data-theme="b">
+		<div data-role="panel" id="left-panel-forgot" data-theme="b">
 			<br /><br />
 			<a class="logged-out ui-btn" href="#login">Login</a>
 			<a class="logged-in ui-btn" href="#mainp">Home</a>
@@ -162,7 +161,7 @@
 	<div data-role="page" id="yourapp">
 		<div data-role="header" data-theme="b">
 			<h1><a href="#mainp" style="text-decoration: none; color: white;">PowerApp</a></h1>
-			<a href=".left-panel-yourapp" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
+			<a href="#left-panel-yourapp" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false"
 				class="ui-nodisc-icon"></a>
 		</div>
 		<div role="main" class="ui-content">
@@ -204,7 +203,7 @@
 							<input type="text" name="sourcelink" id="sourcelink" placeholder="Source Link" autocomplete="off" required/>
 						</div>
 						<textarea cols="40" rows="8" name="desc" id="desc" placeholder="Description" autocomplete="off" required></textarea>
-						<button type="submit" class="ui-btn ui-shadow ui-btn-inline ui-btn-icon-left">
+						<button type="cancel" class="ui-btn ui-shadow ui-btn-inline ui-btn-icon-left">
 							Cancel
 						</button>
 						<button type="submit" class="ui-btn ui-shadow ui-btn-b ui-btn-inline ui-btn-icon-right" onclick="addApp()">
@@ -220,7 +219,7 @@
 
 			</div>
 		</div>
-		<div data-role="panel" class="left-panel-yourapp" data-theme="b">
+		<div data-role="panel" id="left-panel-yourapp" data-theme="b">
 			<br /><br />
 			<a class="logged-out ui-btn" href="#login">Login</a>
 			<a class="logged-in ui-btn" href="#mainp">Home</a>
@@ -233,7 +232,7 @@
 	<div data-role="page" id="rec">
 		<div data-role="header" data-theme="b">
 			<h1><a href="#mainp" style="text-decoration: none; color: white;">PowerApp</a></h1>
-			<a href=".left-panel-curated" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon"></a>
+			<a href="#left-panel-curated" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon"></a>
 		</div>
 		<div role="main" class="ui-content">
 			<a href="#addCuratedApp" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left adminLink" data-transition="pop" style="display: none;">Add Curated App</a>
@@ -291,7 +290,7 @@
 				<!-- Curated apps from firestore-->
 			</div>
 		</div>
-		<div data-role="panel" class="left-panel-curated" data-theme="b">
+		<div data-role="panel" id="left-panel-curated" data-theme="b">
 			<br /><br />
 			<a class="logged-out ui-btn" href="#login">Login</a>
 			<a class="ui-btn" href="#mainp">Home</a>
