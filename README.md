@@ -22,7 +22,7 @@ PowerApp can act as your personal library to keep a catalog of all the softwares
 
 
 People using Powerapp on my server <b>ENJOY!!!</b><br>
-But for people who would like to deploy this on on your server follow the steps below.
+But for people who want to deploy this on their server follow the steps below.
 ## Deploy
 > Quick Link for Setup
 > - Any editor like [VSCode](https://code.visualstudio.com/Download) or [Notepad++](https://notepad-plus-plus.org/downloads/)
